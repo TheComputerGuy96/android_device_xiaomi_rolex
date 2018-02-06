@@ -182,10 +182,7 @@ TARGET_PER_MGR_ENABLED := true
 
 # Power
 TARGET_HAS_LEGACY_POWER_STATS := true
-
-# Properties
-TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop
->>>>>>> parent of 3df09e5... land: Import CAF power HAL
+TARGET_HAS_NO_WIFI_STATS := true
 
 # Qualcomm
 BOARD_USES_QCOM_HARDWARE := true
