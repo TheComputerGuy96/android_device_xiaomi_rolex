@@ -389,9 +389,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libjson
 
-# VNDK-SP:
+# VNDK
 PRODUCT_PACKAGES += \
-    vndk-sp
+    vndk_package
 
 # Vulkan
 PRODUCT_COPY_FILES += \
