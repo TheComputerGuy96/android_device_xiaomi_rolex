@@ -180,6 +180,9 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 # Peripheral manager
 TARGET_PER_MGR_ENABLED := true
 
+# Power
+TARGET_HAS_LEGACY_POWER_STATS := true
+
 # Qualcomm
 BOARD_USES_QCOM_HARDWARE := true
 
