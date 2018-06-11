@@ -397,11 +397,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libwifi-hal-qcom \
     libcld80211 \
-    libqsap_sdk \
-    libQWiFiSoftApCfg \
     libwpa_client \
     hostapd \
-    dhcpcd.conf \
     wificond \
     wpa_supplicant \
     wpa_supplicant.conf
