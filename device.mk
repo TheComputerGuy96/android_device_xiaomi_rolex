@@ -294,6 +294,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.power@1.0-impl \
     android.hardware.power@1.0-service
+	
+# Properties
+-include $(DEVICE_PATH)/vendor_prop.mk
 
 # Ramdisk
 PRODUCT_PACKAGES += \
