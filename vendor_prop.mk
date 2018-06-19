@@ -203,6 +203,10 @@ net.tcp.2g_init_rwnd=10
 PRODUCT_PROPERTY_OVERRIDES += \
 persist.sys.usb.config.extra=none
 
+# Vendor security patch
+PRODUCT_PROPERTY_OVERRIDES += \
+ro.vendor.build.security_patch=2018-03-01
+
 # Trim properties
 PRODUCT_PROPERTY_OVERRIDES += \
 ro.vendor.qti.sys.fw.use_trim_settings=true \
