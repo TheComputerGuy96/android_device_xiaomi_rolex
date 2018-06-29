@@ -101,14 +101,14 @@ void HAL::registerAsSystemService(const char* name) {
 } /* registerAsSystemService */
 
 void HAL::doLogcatDump() {
-    ALOGD("mHandles");
-    ALOGD("========");
+    ALOGV("mHandles");
+    ALOGV("========");
     /* @TODO This will segfault if they aren't initialized and I don't currently
      * care to check for initialization in a function that isn't used anyways
-     * ALOGD("fd1->%d", mHandle1->data[0]);
-     * ALOGD("fd2->%d", mHandle2->data[0]);
+     * ALOGV("fd1->%d", mHandle1->data[0]);
+     * ALOGV("fd2->%d", mHandle2->data[0]);
      */
-    ALOGD("========");
+    ALOGV("========");
 } /* doLogcatDump */
 
 HAL::BoolResult HAL::makeInputCheckFailure(string customErr) {

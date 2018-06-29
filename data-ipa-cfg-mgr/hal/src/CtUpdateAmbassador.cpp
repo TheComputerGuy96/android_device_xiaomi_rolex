@@ -58,7 +58,7 @@ CtUpdateAmbassador::CtUpdateAmbassador(
 
 void CtUpdateAmbassador::updateTimeout(IpaNatTimeoutUpdate in) {
     if (DBG) {
-        ALOGD("updateTimeout(src={%#010X, %#04X}, dest={%#010X, %#04X}, Proto=%d)",
+        ALOGV("updateTimeout(src={%#010X, %#04X}, dest={%#010X, %#04X}, Proto=%d)",
                 in.src.ipAddr, in.src.port, in.dst.ipAddr, in.dst.port,
                 in.proto);
     }

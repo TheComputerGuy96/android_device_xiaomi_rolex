@@ -122,5 +122,5 @@ void LocalLogBuffer::addLog(FunctionLog log) {
 
 void LocalLogBuffer::toLogcat() {
     for (size_t i = 0; i < mLogs.size(); i++)
-        ALOGD("%s: %s", mName.c_str(), mLogs[i].toString().c_str());
+        ALOGV("%s: %s", mName.c_str(), mLogs[i].toString().c_str());
 } /* toLogcat */
