@@ -408,13 +408,7 @@ on property:sys.boot_completed=1
     chown media audio /sys/kernel/wdsp0/boot
     chown media audio /sys/kernel/wcd_cpe0/fw_name
 
-service qcom-c_main-sh /vendor/bin/init.class_main.sh
-    class main
-    user root
-    oneshot
-
 on property:vold.decrypt=trigger_restart_framework
-    start qcom-c_main-sh
     start wcnss-service
 
 on property:persist.env.fastdorm.enabled=true
