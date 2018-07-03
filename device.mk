@@ -270,7 +270,8 @@ PRODUCT_PACKAGES += \
     libstagefright_soft_flacdec
     
 PRODUCT_PACKAGES += \
-    android.hardware.media.omx@1.0-impl
+    android.hardware.media.omx@1.0-impl \
+    android.hardware.media.omx@1.0-service
 
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
