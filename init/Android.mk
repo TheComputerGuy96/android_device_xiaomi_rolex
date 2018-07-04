@@ -1,11 +1,11 @@
-#
 # Copyright (C) 2016 The CyanogenMod Project
+# Copyright (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-# http://www.apache.org/licenses/LICENSE-2.0
+#      http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -18,13 +18,12 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_C_INCLUDES := \
-        system/core/base/include \
-        system/core/init \
-        external/selinux/libselinux/include
-LOCAL_MODULE := libinit_rolex
 LOCAL_MODULE_TAGS := optional
+LOCAL_C_INCLUDES := \
+    system/core/base/include \
+    system/core/init
+LOCAL_CPPFLAGS := -Wall
 LOCAL_SRC_FILES := init_rolex.cpp
-LOCAL_STATIC_LIBRARIES := libbase libselinux
+LOCAL_MODULE := libinit_rolex
 
 include $(BUILD_STATIC_LIBRARY)

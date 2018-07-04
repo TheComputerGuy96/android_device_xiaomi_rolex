@@ -26,11 +26,7 @@
    IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <sys/sysinfo.h>
-#define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
-#include <sys/_system_properties.h>
+#include <cstdio>
 
 #include <android-base/file.h>
 #include <android-base/properties.h>
@@ -43,20 +39,6 @@ using android::base::GetProperty;
 using android::base::ReadFileToString;
 using android::base::Trim;
 using android::init::property_set;
-
-char const *heapminfree;
-char const *heapmaxfree;
-
-void property_override(char const prop[], char const value[])
-{
-    prop_info *pi;
-
-    pi = (prop_info*) __system_property_find(prop);
-    if (pi)
-        __system_property_update(pi, value, strlen(value));
-    else
-        __system_property_add(prop, strlen(prop), value, strlen(value));
-}
 
 static void init_alarm_boot_properties()
 {
@@ -83,48 +65,15 @@ static void init_alarm_boot_properties()
          * 7 -> CBLPWR_N pin toggled (for external power supply)
          * 8 -> KPDPWR_N pin toggled (power key pressed)
          */
-         if ((Trim(boot_reason) == "3" || reboot_reason == "true")
-                 && Trim(power_off_alarm) == "1") {
-             property_set("ro.alarm_boot", "true");
-         } else {
-             property_set("ro.alarm_boot", "false");
-         }
-    }
-}
-
-void check_device()
-{
-    struct sysinfo sys;
-
-    sysinfo(&sys);
-
-    if (sys.totalram > 3072ull * 1024 * 1024) {
-        // from - phone-xxxhdpi-4096-dalvik-heap.mk
-        heapminfree = "4m";
-        heapmaxfree = "16m";
-    } else {
-        // from - phone-xxhdpi-3072-dalvik-heap.mk
-        heapminfree = "512k";
-        heapmaxfree = "8m";
+        if ((Trim(boot_reason) == "3" || reboot_reason == "true")
+                && Trim(power_off_alarm) == "1")
+            property_set("ro.alarm_boot", "true");
+        else
+            property_set("ro.alarm_boot", "false");
     }
 }
 
 void vendor_load_properties()
 {
-    std::string platform;
-
-    platform = GetProperty("ro.board.platform", "");
-    if (platform != ANDROID_TARGET)
-        return;
-
-    check_device();
-
-    property_set("dalvik.vm.heapstartsize", "8m");
-    property_set("dalvik.vm.heapgrowthlimit", "256m");
-    property_set("dalvik.vm.heapsize", "512m");
-    property_set("dalvik.vm.heaptargetutilization", "0.75");
-    property_set("dalvik.vm.heapminfree", heapminfree);
-    property_set("dalvik.vm.heapmaxfree", heapmaxfree);
-
     init_alarm_boot_properties();
 }
