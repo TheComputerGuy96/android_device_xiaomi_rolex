@@ -7,7 +7,7 @@ extern "C" {
 
 #include <stdlib.h>
 #include <sys/types.h>
-#include <cutils/log.h>
+#include <log/log.h>
 
 typedef uint64_t DISPAPI_HANDLE;
 
